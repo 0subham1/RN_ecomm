@@ -1,4 +1,4 @@
-package com.ecomm;
+package com.greenplay.ecomm;
 
 import android.app.Application;
 import com.facebook.react.PackageList;
