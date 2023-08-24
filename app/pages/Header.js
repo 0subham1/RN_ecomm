@@ -5,8 +5,7 @@ import { Button, Menu } from "react-native-paper";
 import style from "../css/style";
 import { AuthContext } from "../common/AuthContext";
 import { useNavigation } from "@react-navigation/native";
-import axios from "axios";
-import { BASE_URL } from "../common/Const";
+
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 const Header = () => {

@@ -26,22 +26,15 @@ const Footer = () => {
         >
           <Ionicons name="home-outline" size={18} color="black" />
         </Button>
-        <Button
-          onPress={() => {
-            navigation.navigate("chat");
-            setStore({ ...store, path: "Chat" });
-          }}
-        >
-          <AntDesign name="message1" size={16} color="black" />{" "}
-        </Button>
-        <Button
+       
+        {/* <Button
           onPress={() => {
             navigation.navigate("reels");
             setStore({ ...store, path: "Reels" });
           }}
         >
           <Foundation name="play-video" size={20} color="black" />{" "}
-        </Button>
+        </Button> */}
         <Button
           onPress={() => {
             navigation.navigate("profile");
