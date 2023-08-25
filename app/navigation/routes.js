@@ -7,6 +7,7 @@ import Cart from "../pages/Cart";
 import Footer from "../pages/Footer";
 import Profile from "../pages/Profile";
 import Home from "../pages/Home";
+import Test from "../pages/Test";
 const stack = createNativeStackNavigator();
 const Routes = () => {
   return (
@@ -21,6 +22,7 @@ const Routes = () => {
           <stack.Screen name="profile" component={Profile} />
           <stack.Screen name="orders" component={Orders} />
           <stack.Screen name="cart" component={Cart} />
+          <stack.Screen name="test" component={Test} />
           {/* <stack.Screen name="reels" component={Reels} /> */}
         </stack.Navigator>
         <Footer/>

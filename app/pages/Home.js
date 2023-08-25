@@ -5,6 +5,7 @@ import {
   TouchableOpacity,
   TextInput,
   FlatList,
+  useColorScheme,
 } from "react-native";
 import {
   Searchbar,
@@ -24,6 +25,9 @@ const Home = () => {
 
   const [itemList, setItemList] = useState([]);
   const [itemList2, setItemList2] = useState([]);
+
+const theme=useColorScheme()
+console.log(theme,"theme")
 
   const handleAddToCart = (item) => {
     if (store.user) {
