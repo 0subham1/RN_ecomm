@@ -35,14 +35,7 @@ const Footer = () => {
         >
           <Foundation name="play-video" size={20} color="black" />{" "}
         </Button> */}
-         <Button
-          onPress={() => {
-            navigation.navigate("test");
-            setStore({ ...store, path: "test" });
-          }}
-        >
-          test
-        </Button>
+        
         <Button
           onPress={() => {
             navigation.navigate("profile");
