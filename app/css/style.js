@@ -1,8 +1,10 @@
-import { Dimensions, StyleSheet } from "react-native";
+import { Dimensions, StyleSheet, useColorScheme } from "react-native";
+
+const isDark=useColorScheme()==="dark"
 
 export default StyleSheet.create({
-
-  white: { backgroundColor: "#ffffff", margin: 5 },
+//common
+  white: { backgroundColor: isDark?"black":"white", margin: 5 },
   badge: {
     top: 0,
     right: 6,
@@ -14,12 +16,14 @@ export default StyleSheet.create({
     margin: 10,
     padding: 5,
     width: Dimensions.get("screen").width - 40,
-    backgroundColor: "#fff",
+    backgroundColor: isDark?"black":"white",
+    color:isDark?"white":"black"
   },
 
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor:  isDark?"black":"white",  
+    color:isDark?"white":"black",
     alignItems: "center",
     // justifyContent: "center",
   },
@@ -40,7 +44,8 @@ export default StyleSheet.create({
     justifyContent: "space-around",
     width: "100%",
     height: 50,
-    backgroundColor: "#fff",
+    backgroundColor:  isDark?"black":"white",
+    color:isDark?"white":"black",
     elevation: 7,
     alignItems: "center",
     bottom: 0,
@@ -61,7 +66,8 @@ export default StyleSheet.create({
   searchBar: {
     width: Dimensions.get("screen").width - 30,
     marginBottom: 10,
-    backgroundColor: "#fff",
+    backgroundColor:  isDark?"black":"white",
+    color:isDark?"white":"black",
     borderWidth: 1,
     elevation: 10,
   },
@@ -74,7 +80,8 @@ export default StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "center",
     elevation: 2,
-    backgroundColor: "#ffffff",
+    backgroundColor:  isDark?"black":"white",
+    color:isDark?"white":"black",
     borderRadius: 5,
     
   },
@@ -94,7 +101,7 @@ export default StyleSheet.create({
   btn: {
     margin: 5,
     padding: 5,
-    backgroundColor: "#87CEFA",
+    backgroundColor: "#87CEFA",//blue
     borderRadius: 5,
     elevation: 5,
     display: "flex",
@@ -109,7 +116,8 @@ export default StyleSheet.create({
     padding: 2,
     margin: 2,
     elevation: 4,
-    backgroundColor: "#fff",
+    backgroundColor: isDark?"black":"white",
+    color:isDark?"white":"black",
     alignItems: "center",
   },
 });
