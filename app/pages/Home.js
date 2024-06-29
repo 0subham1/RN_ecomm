@@ -79,6 +79,10 @@ console.log(theme,"theme")
               data={itemList}
               renderItem={({ item }) => (
                 <View style={style.card}>
+                   <Image
+                    style={style.logo}
+                    source={require("../common/img/food.jpg")}
+                  />
                   <Text style={{ width: 80 }}>{item?.name}</Text>
                   <Text>₹ {item?.price} </Text>
                   <TouchableOpacity
