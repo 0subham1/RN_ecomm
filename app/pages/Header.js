@@ -9,9 +9,10 @@ import {useNavigation} from '@react-navigation/native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 const Header = () => {
+  const isDark = useColorScheme() === 'dark';
+
   const {store, setStore} = useContext(AuthContext);
   const navigation = useNavigation();
-  const isDark = useColorScheme() === 'dark';
 
   const [visible, setVisible] = React.useState(false);
   const [info, setInfo] = React.useState(false);
@@ -57,7 +58,7 @@ const Header = () => {
 
       <Portal>
         <Dialog
-          style={style.white}
+          style={{margin: 5, backgroundColor: isDark ? '#535353' : 'white'}}
           visible={info}
           onDismiss={() => setInfo(false)}>
           <Dialog.Title>Hi There!</Dialog.Title>
@@ -73,7 +74,10 @@ const Header = () => {
             <Text> (For best experience,avoid dark mode)</Text>
           </Dialog.Content>
         </Dialog>
-        <Dialog style={style.white} visible={visible} onDismiss={hideDialog}>
+        <Dialog
+          style={{backgroundColor: isDark ? '#535353' : 'white'}}
+          visible={visible}
+          onDismiss={hideDialog}>
           <Dialog.Title>Logout ?</Dialog.Title>
           <Dialog.Actions>
             <Button onPress={hideDialog}>No</Button>

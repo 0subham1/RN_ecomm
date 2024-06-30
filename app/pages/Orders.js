@@ -1,13 +1,15 @@
-import { View, Text, FlatList } from "react-native";
-import React, { useContext, useEffect, useState } from "react";
-import { BASE_URL } from "../common/Const";
-import axios from "axios";
-import { AuthContext } from "../common/AuthContext";
-import style from "../css/style";
-import { Button, Dialog, Portal } from "react-native-paper";
+import {View, Text, FlatList, useColorScheme} from 'react-native';
+import React, {useContext, useEffect, useState} from 'react';
+import {BASE_URL} from '../common/Const';
+import axios from 'axios';
+import {AuthContext} from '../common/AuthContext';
+import style from '../css/style';
+import {Button, Dialog, Portal} from 'react-native-paper';
 
 const Orders = () => {
-  const { store, setStore } = useContext(AuthContext);
+  const isDark = useColorScheme() === 'dark';
+
+  const {store, setStore} = useContext(AuthContext);
   const [orders, setOrders] = useState([]);
   const [info, setInfo] = React.useState(false);
   const [items, setItems] = React.useState([]);
@@ -15,32 +17,42 @@ const Orders = () => {
   useEffect(() => {
     if (store?.user?._id) {
       axios
-        .get(BASE_URL + "userOrders/" + store?.user?._id)
-        .then((res) => {
+        .get(BASE_URL + 'userOrders/' + store?.user?._id)
+        .then(res => {
           setOrders(res.data);
         })
-        .catch((err) => {
-          toast("bad Request");
+        .catch(err => {
+          toast('bad Request');
         });
     }
   }, []);
 
   return (
-    <View style={style.container}>
+    <View style={isDark ? style.containerDark : style.containerLight}>
       <FlatList
         data={orders}
-        renderItem={({ item, index }) => (
-          <View style={style.card}>
+        renderItem={({item, index}) => (
+          <View style={isDark ? style.cardDark : style.cardLight}>
             <Button
               onPress={() => {
                 setInfo(true);
                 setItems(item?.itemList);
-              }}
-            >
-              <Text>{item?.orderId}</Text>
+              }}>
+              <Text style={{color: isDark ? 'white' : 'black'}}>
+                {item?.orderId}
+              </Text>
             </Button>
-            <Text>{item?.orderDate.substring(0, 10)}</Text>
-            <Text style={{width:60,textAlign:"right"}}>₹ {item?.total}</Text>
+            <Text style={{color: isDark ? 'white' : 'black'}}>
+              {item?.orderDate.substring(0, 10)}
+            </Text>
+            <Text
+              style={{
+                width: 60,
+                textAlign: 'right',
+                color: isDark ? 'white' : 'black',
+              }}>
+              ₹ {item?.total}
+            </Text>
           </View>
         )}
       />
@@ -51,13 +63,12 @@ const Orders = () => {
           onDismiss={() => {
             setInfo(false);
             setItems([]);
-          }}
-        >
+          }}>
           <Dialog.Title>Items:</Dialog.Title>
           <Dialog.Content>
             <FlatList
               data={items}
-              renderItem={({ item, index }) => (
+              renderItem={({item, index}) => (
                 <View style={style.row1}>
                   <Text>
                     {item?.qty} x {item?.name}

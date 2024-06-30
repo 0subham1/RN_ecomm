@@ -12,7 +12,13 @@ export default StyleSheet.create({
     position: 'absolute',
   },
 
-  inputField: {
+  inputDark: {
+    margin: 10,
+    padding: 5,
+    width: Dimensions.get('screen').width - 40,
+    backgroundColor: '#535353',
+  },
+  inputLight: {
     margin: 10,
     padding: 5,
     width: Dimensions.get('screen').width - 40,

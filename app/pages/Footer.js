@@ -58,7 +58,12 @@ const Footer = () => {
               navigation.navigate('orders');
               setStore({...store, path: 'Orders'});
             }}>
-            <Ionicons name="list-circle-outline" size={22} color="black" />
+            <Ionicons
+              style={{color: isDark ? 'white' : 'black'}}
+              name="list-circle-outline"
+              size={22}
+              color="black"
+            />
           </Button>
         )}
 

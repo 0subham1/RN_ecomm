@@ -17,6 +17,7 @@ import {BASE_URL} from '../common/Const';
 import {AuthContext} from '../common/AuthContext';
 
 const Home = () => {
+  const isDark = useColorScheme() === 'dark';
   const {store, setStore} = useContext(AuthContext);
   const {cart, setCart} = useContext(AuthContext);
   const navigation = useNavigation();
@@ -24,8 +25,6 @@ const Home = () => {
   const [itemList, setItemList] = useState([]);
   const [itemList2, setItemList2] = useState([]);
 
-  const isDark = useColorScheme() === 'dark';
-  console.log(isDark, 'isDark');
   const handleAddToCart = item => {
     if (store.user) {
       item.qty = 1;
