@@ -2,6 +2,9 @@ import {Dimensions, StyleSheet} from 'react-native';
 
 export default StyleSheet.create({
   white: {backgroundColor: '#ffffff', margin: 5},
+  headDark: {margin: 5, backgroundColor: 'black', color: 'white'},
+  headLight: {margin: 5, backgroundColor: 'white', color: 'black'},
+
   badge: {
     top: 0,
     right: 6,
@@ -22,6 +25,16 @@ export default StyleSheet.create({
     alignItems: 'center',
     // justifyContent: "center",
   },
+  containerDark: {
+    flex: 1,
+    backgroundColor: 'black',
+    alignItems: 'center',
+  },
+  containerWhite: {
+    flex: 1,
+    backgroundColor: 'white',
+    alignItems: 'center',
+  },
 
   welcomeTxt: {
     fontSize: 40,
@@ -32,14 +45,26 @@ export default StyleSheet.create({
     height: 100,
     width: 100,
   },
-  bottomView: {
+  bottomViewDark: {
     display: 'flex',
     padding: 2,
     flexDirection: 'row',
     justifyContent: 'space-around',
     width: '100%',
     height: 50,
-    backgroundColor: '#fff',
+    backgroundColor: 'black',
+    elevation: 7,
+    alignItems: 'center',
+    bottom: 0,
+  },
+  bottomViewLight: {
+    display: 'flex',
+    padding: 2,
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    width: '100%',
+    height: 50,
+    backgroundColor: 'white',
     elevation: 7,
     alignItems: 'center',
     bottom: 0,
@@ -57,14 +82,35 @@ export default StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  searchBar: {
+  searchBarDark: {
     width: Dimensions.get('screen').width - 30,
     marginBottom: 10,
-    backgroundColor: '#fff',
+    backgroundColor: '#535353',
     borderWidth: 1,
     elevation: 10,
   },
-  card: {
+  searchBarLight: {
+    width: Dimensions.get('screen').width - 30,
+    marginBottom: 10,
+    backgroundColor: 'white',
+    borderWidth: 1,
+    elevation: 10,
+  },
+  txtDark: {color: 'white'},
+  txtLight: {color: 'black'},
+  cardDark: {
+    width: Dimensions.get('screen').width - 15,
+    padding: 5,
+    margin: 5,
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    elevation: 2,
+    backgroundColor: '#535353',
+    borderRadius: 5,
+  },
+  cardLight: {
     width: Dimensions.get('screen').width - 15,
     padding: 5,
     margin: 5,

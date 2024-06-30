@@ -1,16 +1,17 @@
-import { View, Text, SafeAreaView } from "react-native";
-import React, { useContext, useState } from "react";
-import { Appbar, Dialog, Portal } from "react-native-paper";
-import { Button, Menu } from "react-native-paper";
-import style from "../css/style";
-import { AuthContext } from "../common/AuthContext";
-import { useNavigation } from "@react-navigation/native";
+import {View, Text, SafeAreaView, useColorScheme} from 'react-native';
+import React, {useContext, useState} from 'react';
+import {Appbar, Dialog, Portal} from 'react-native-paper';
+import {Button, Menu} from 'react-native-paper';
+import style from '../css/style';
+import {AuthContext} from '../common/AuthContext';
+import {useNavigation} from '@react-navigation/native';
 
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 const Header = () => {
-  const { store, setStore } = useContext(AuthContext);
+  const {store, setStore} = useContext(AuthContext);
   const navigation = useNavigation();
+  const isDark = useColorScheme() === 'dark';
 
   const [visible, setVisible] = React.useState(false);
   const [info, setInfo] = React.useState(false);
@@ -23,22 +24,23 @@ const Header = () => {
     if (store.user) {
       showDialog();
     } else {
-      navigation.navigate("profile");
+      navigation.navigate('profile');
     }
   };
 
   const handleLogout = () => {
     setStore({});
     hideDialog();
-    navigation.navigate("home");
+    navigation.navigate('home');
   };
 
   return (
     <>
-      <Appbar.Header style={style.white}>
-        <Appbar.Content title={store?.path ? store.path : "FoodyWoody"} />
+      <Appbar.Header style={isDark ? style.headDark : style.headWhite}>
+        <Appbar.Content title={store?.path ? store.path : 'FoodyWoody'} />
 
         <Ionicons
+          style={{color: isDark ? 'white' : 'black'}}
           onPress={() => setInfo(true)}
           name="information-circle"
           size={21}
@@ -57,8 +59,7 @@ const Header = () => {
         <Dialog
           style={style.white}
           visible={info}
-          onDismiss={() => setInfo(false)}
-        >
+          onDismiss={() => setInfo(false)}>
           <Dialog.Title>Hi There!</Dialog.Title>
           <Dialog.Content>
             <Text> Welcome to my first ReactNative app,</Text>
