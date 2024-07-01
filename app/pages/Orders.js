@@ -16,6 +16,10 @@ const Orders = () => {
 
   useEffect(() => {
     if (store?.user?._id) {
+      console.log(
+        BASE_URL + 'userOrders/' + store?.user?._id,
+        'get user order',
+      );
       axios
         .get(BASE_URL + 'userOrders/' + store?.user?._id)
         .then(res => {

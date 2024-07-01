@@ -1,0 +1,4 @@
+      dispatch(savePurchase(rows, purchaseInfo, navigate, delList, heading));
+
+
+export const savePurchase = (rows, purchaseInfo, navigate, delList, heading) => async (dispatch) => {

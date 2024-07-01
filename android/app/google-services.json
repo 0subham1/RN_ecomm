@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "456486567430",
+    "project_id": "rnnotificationapp-d1466",
+    "storage_bucket": "rnnotificationapp-d1466.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:456486567430:android:bf4a5493a8f344072fcd87",
+        "android_client_info": {
+          "package_name": "com.greenplay.ecomm"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCqogY_-_U1iip4nbgpEuFKuVd7vIXiZzE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

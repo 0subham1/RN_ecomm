@@ -71,7 +71,7 @@ const Cart = () => {
       total: total,
       tax: 0,
     };
-
+    console.log(data, 'data add order');
     axios
       .post(BASE_URL + 'addOrder', data)
       .then(res => {
