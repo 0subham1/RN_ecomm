@@ -1,8 +1,8 @@
 const {createSlice} = require('@reduxjs/toolkit');
-import {getItemList} from '../Actions/Products';
+import {getItemList} from '../Actions/Items';
 
-const productSlice = createSlice({
-  name: 'products',
+const itemSlice = createSlice({
+  name: 'Items',
   initialState: {
     data: null,
     isLoading: false,
@@ -25,4 +25,4 @@ const productSlice = createSlice({
   },
 });
 
-export default productSlice.reducer;
+export default itemSlice.reducer;

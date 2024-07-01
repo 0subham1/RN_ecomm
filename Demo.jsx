@@ -1,7 +1,7 @@
 import {View, Text, TouchableOpacity} from 'react-native';
 import React from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import {getItemList} from './redux/Actions/Products';
+import {getItemList} from './redux/Actions/Items';
 
 const Demo = () => {
   const dispatch = useDispatch();
