@@ -39,7 +39,7 @@ export const addOrder = createAsyncThunk('addOrder', async (obj, thunkApi) => {
       if (res.data) {
         console.log('Order placed successfully');
         thunkApi?.dispatch(getOrderList());
-        obj?.navigation?.navigate('demo2');
+        obj?.navigation?.navigate('demo2', {msg: 'bye world'});
         return res.data;
       } else {
         console.log('error in placing order');

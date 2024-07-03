@@ -1,10 +1,18 @@
-import {View, Text, TouchableOpacity, Button} from 'react-native';
-import React from 'react';
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  Button,
+  Dimensions,
+  Pressable,
+} from 'react-native';
+import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {getItemList} from './Actions/Items';
 import {getOrderList, addOrder} from './Actions/Orders';
 import {useNavigation} from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import messaging from '@react-native-firebase/messaging';
 
 const Demo = () => {
   const dispatch = useDispatch();
@@ -13,6 +21,15 @@ const Demo = () => {
   const orders = useSelector(state => state.orders);
   console.log('items', items);
   console.log('orders', orders);
+
+  useEffect(() => {
+    getToken();
+  }, []);
+
+  const getToken = async () => {
+    let token = await messaging().getToken();
+    console.log(token);
+  };
   let data = {
     itemList: [
       {
@@ -68,13 +85,17 @@ const Demo = () => {
       style={{
         backgroundColor: 'white',
         flex: 1,
+        // flexDirection: 'row',
+        width: Dimensions.get('screen').width - 50,
         justifyContent: 'space-around',
       }}>
-      <Text onPress={() => dispatch(getItemList())}>get Items</Text>
-      <Text onPress={() => dispatch(getOrderList())}>get Orders</Text>
-      <Text onPress={() => dispatch(addOrder({data, navigation}))}>
-        add Orders
-      </Text>
+      <Button title="get Orders" onPress={() => dispatch(getOrderList())} />
+
+      <Button
+        title="addOrder"
+        onPress={() => dispatch(addOrder({data, navigation}))}
+      />
+
       <Button title="setData" onPress={() => handleSetData()} />
       <Button title="getData" onPress={() => handleGetData()} />
       <Button title="remove Data" onPress={() => handleRemoveData()} />
